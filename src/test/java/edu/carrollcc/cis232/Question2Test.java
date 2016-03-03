@@ -42,7 +42,7 @@ public class Question2Test {
     {
 		exit.expectSystemExit();
 		systemInMock.provideLines("scores.file", "90,72.4,80,100,99.9,90,76.2");
-    	Question2.main(null);
+    	Question2Write.main(null);
     	String output = systemOutRule.getLogWithNormalizedLineSeparator();
     	assertThat(output, matchesPattern("(?smiu).*new file.*$"));
         assertThat(output, matchesPattern("(?smiu).*86\\.9%.*$"));
@@ -59,13 +59,13 @@ public class Question2Test {
 		exit.expectSystemExit();
 		//fill up a file with multiple scores
 		systemInMock.provideLines("scores2.file", "90,72.4,80,100,99.9,90,76.2");
-    	Question2.main(null);
+    	Question2Write.main(null);
     	systemInMock.provideLines("scores2.file", "99,hello,10,,100,100,100,double, number,   hi!,85.2222222");
-    	Question2.main(null);
+    	Question2Write.main(null);
     	systemInMock.provideLines("scores2.file", "-.0001,12,20,10");
-    	Question2.main(null);
+    	Question2Write.main(null);
     	systemInMock.provideLines("scores2.file", "90,90,90,90,90,90,90,100");
-    	Question2.main(null);
+    	Question2Write.main(null);
     	
     	String output = systemOutRule.getLogWithNormalizedLineSeparator();
     	assertThat(output, matchesPattern("(?smiu).*new file.*$"));

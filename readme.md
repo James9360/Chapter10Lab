@@ -1,72 +1,55 @@
 # Lab 3: Chapter 10
-**Due:** October 13th by 6:30 PM
+**Due:** March 13th by 6:30 PM
 
-## Question 1: TestScores Class
+## Question 1: `FileArray` Class
 
-Write a class named *TestScores*. The class constructor should accept an array of doubles representing test scores as its argument. The class should have a method that returns the average of the test scores named **getAverage**.
+Design a class that has a static method named `writeArray`. The method should take two arguments: the name of a file 
+and a reference to an `int` array. The file should be opened as a binary file, the contents of the array should be 
+written to the file, and then the file should be closed.
 
-Write an exception class named *InvalidTestScoreException*.  If any test score in the array is negative or greater than 100, the *TestScores* class constructor should throw an *InvalidTestScoreException*.
+Write a second method in the class named `readArray`. The method should take two arguments: the name of a file and 
+a reference to an `int` array. The file should be opened, data should be read from the file and stored in the array,
+and then the file should be closed.
 
-From the Question1 main method, ask the user to enter any number of test scores separated by commas. Then show the user the average of the test scores formatted as a percentage rounded to the nearest tenth of a percent (round up on 5s).  If a test score is not a  number, skip it, and print a message indicating it was skipped.  Accept any number, but use the *InvalidTestScoreException* from the constructor to show a message if a number is out of bounds.
-
-Example run #1:
-
-    Enter the test scores separated with a comma:
-	> 90,72.4,80,100,99.9
-	The average score is 88.5%
-
-Example run #2:
-
-	Enter the test scores separated with a comma:
-	> 99,abc,10,def,100,100,100
-	Skipped non-number "abc"
-	Skipped non-number "def"
-	The average score is 81.8%
+Demonstrate both methods in a program in Question1.java.
 	
-Example run #3
+**Points breakdown**
 
-	Enter the test scores separated with a comma:
-	> 101,90,99,100
-	Test scores must be between 0 and 100.
+- Technical: 10 points
+- Style: 5 points
+- Total: 15 points
+
+## Question 2: `Employee` Serialization
+
+Modify the `Employee` class that you created for the Chapter 9 Lab to be serializable. Write a program that
+creates an array of at least five TestScore objects and serializes them in Question2Write.java. 
+
+Write another program that deserializes the objects from the file in Question2Read.java.
+	
+**Points breakdown**
+
+- Technical: 20 points
+- Style: 5 points
+- Total: 25 points
+
+## Question 3: Exception Project
+
+Modify the `Employee` and `ProductionWorker` classes from the Chapter 9 lab so they throw exceptions when the 
+following errors occur:
+
+1. The `Employee` class should throw an exception named `InvalidEmployeeNumber` when it receives an employee
+number that is less than 0 or greater than 9999.
+2. The `ProductionWorker` class should throw an exception named `InvalidShift` when it receives an invalid shift.
+3. The `ProductionWorker` class should throw an exception named `InvalidPayRate` when it receives a negative
+number for the hourly pay rate.
+
+Write a test program that demonstrates how each of these exception conditions work in Question3.java.
 	
 **Points breakdown**
 
 - Technical: 25 points
-- Style: 10 points
-- Total: 35 points
-
-## Question 2: TestScores Serialization
-
-Modify the class named *TestScores* so it is serializable.  Write a program in the Question2 main method that asks the user for a test scores file name.  If the file exists, deserialize the *TestScores* objects from the file and display the list of scores and averages for each *TestScores* object.  Ask the user to enter a new set of test scores to append to the file.  If the user does not enter valid scores (see question 1), exit the program. Otherwise, append to the existing file or create a new file containing the serialized *TestScores*.
-
-Example run #1:
-	
-	Enter the path to a TestScores dat file:
-	> newscores.dat
-	This is a new file!
-	Enter test scores to append to the file separated with a comma:
-	> 90,72.4,80,100,99.9
-	The average score is 88.5%
-	newscores.dat file updated.
-	
-Example run #2:
-
-	Enter the path to a TestScores dat file:
-	> oldscores.dat
-	The file contains the following scores:
-	90,72.4,80,100,99.9: Average 88.5%
-	100,100,100: Average 100%
-	90,90,90,90,90,90,90,100: Average 91.3%
-	Enter test scores to append to the file separated with a comma:
-	50,50,50,50
-	The average score is 50%
-	oldscores.dat file updated.
-	
-**Points breakdown**
-
-- Technical: 25 points
-- Style: 10 points
-- Total: 35 points
+- Style: 5 points
+- Total: 30 points
 
 ----
 ### How to submit the lab
@@ -87,25 +70,20 @@ This section outlines how to get the lab on to your computer and how to submit i
 	11. Press Finish and your project is imported!
 	12. Right click the project in the package explorer, click Maven->Update Project... (Or press Alt+F5)
 3. Do the actual lab work
-	1. Read/implement the Question 1 section above
+	1. Read/implement the Question sections above
 	2. Keep all existing and new classes in the edu.carroll.cis232 package.
 	3. Do not rename any existing files.
 4. Test your work.
 	1. Run the application by pressing the Play button to test your program manually.
-	2. To test your program with the built-in Unit tests: 
-		1. Open the unit test class named Question1Test in the src/test/java folder.
-		2. Press the Play button.
-		3. The failed tests will show up as red on the left. Passed tests will show up as green.
-		4. Repeat the process with Question2Test
+	2. Feel free to write unit tests to test your work
 5. Submit your work
 	1. Right click the project
 	2. Choose Team->Commit...
-	3. Enter a comment such as "My solution for the chapter 8 lab"
+	3. Enter a comment such as "My solution for the chapter 10 lab"
 	4. Enter your name/email for the author/committer fields if it is not set
 	5. Press "Commit and Push". (Committing saves the changes locally, Pushing saves the changes on your GitHub fork)
-	6. Your work is now on your GitHub fork.  Open up the browser to your GitHub fork of the example lab.
+	6. Your work is now on your GitHub fork.  Open up the browser to your GitHub fork of the lab.
 	7. Press the green pull request button at the top to the left of the "Branch: master" dropdown.
 	8. To finally submit your lab, Click the green "Create new pull request" button, enter a title and message, and press "Create pull request".
 	9. Your lab is now submitted!
 
-**Special**: You can give "kudos" points to up to 2 people for helping you with the lab either through tutoring or by looking at their forks.  When you submit your lab, indicate up to 2 people that you would like to give points. A student can earn up to 5 bonus points combined from multiple kudos.
