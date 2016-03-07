@@ -22,7 +22,7 @@ Demonstrate both methods in a program in Question1.java.
 ## Question 2: `Employee` Serialization
 
 Modify the `Employee` class that you created for the Chapter 9 Lab to be serializable. Write a program that
-creates an array of at least five TestScore objects and serializes them in Question2Write.java. 
+creates an array of at least five `Employee` objects and serializes them in Question2Write.java. 
 
 Write another program that deserializes the objects from the file in Question2Read.java.
 	
